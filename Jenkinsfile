@@ -15,6 +15,28 @@ pipeline {
             }
         }
 
+        stage('Test backend') {
+            steps {
+                withCredentials([file(credentialsId: 'todo-env', variable: 'ENV_FILE')]) {
+                    dir('Backend/todo-summary-assistant') {
+                        sh '''
+                            set -a
+                            . "$ENV_FILE"
+                            set +a
+                            chmod +x mvnw
+                            ./mvnw -B test
+                        '''
+                    }
+                }
+            }
+            post {
+                always {
+                    junit allowEmptyResults: true,
+                          testResults: 'Backend/todo-summary-assistant/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
         stage('Add .env') {
             steps {
                 withCredentials([file(credentialsId: 'todo-env', variable: 'ENV_FILE')]) {
