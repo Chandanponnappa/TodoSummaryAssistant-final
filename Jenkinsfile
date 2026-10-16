@@ -17,16 +17,14 @@ pipeline {
 
         stage('Test backend') {
             steps {
-                withCredentials([file(credentialsId: 'todo-env', variable: 'ENV_FILE')]) {
-                    dir('Backend/todo-summary-assistant') {
-                        sh '''
-                            set -a
-                            . "$ENV_FILE"
-                            set +a
-                            chmod +x mvnw
-                            ./mvnw -B test
-                        '''
-                    }
+                dir('Backend/todo-summary-assistant') {
+                    sh '''
+                        set -a
+                        . /var/lib/jenkins/todo.env
+                        set +a
+                        chmod +x mvnw
+                        ./mvnw -B test
+                    '''
                 }
             }
             post {
@@ -39,9 +37,7 @@ pipeline {
 
         stage('Add .env') {
             steps {
-                withCredentials([file(credentialsId: 'todo-env', variable: 'ENV_FILE')]) {
-                    sh 'cp "$ENV_FILE" .env'
-                }
+                sh 'cp /var/lib/jenkins/todo.env .env'
             }
         }
 
