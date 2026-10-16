@@ -18,13 +18,8 @@ pipeline {
         stage('Test backend') {
             steps {
                 dir('Backend/todo-summary-assistant') {
-                    sh '''
-                        set -a
-                        . /var/lib/jenkins/todo.env
-                        set +a
-                        chmod +x mvnw
-                        ./mvnw -B test
-                    '''
+                    sh 'chmod +x mvnw'
+                    sh './mvnw -B test'
                 }
             }
             post {
