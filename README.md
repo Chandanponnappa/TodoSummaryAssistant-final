@@ -125,3 +125,6 @@ A full-stack application to manage personal to-do items, summarize pending tasks
 
 ![Screenshot (1143)](https://github.com/user-attachments/assets/1e9f8783-d0df-42ce-a3f8-ec7ca5e7c078)
 <img width="1774" height="887" alt="ca9a9ef3-52ba-46e8-b2b8-7bc09e37d91c" src="https://github.com/user-attachments/assets/19c3b353-feca-480f-b473-6e72b8571c14" />
+<img width="1006" height="1008" alt="WhatsApp Image 2026-10-17 at 8 00 50 AM" src="https://github.com/user-attachments/assets/4b4cb93f-dc75-4fb1-bf95-044ab04d8532" />
+<img width="1756" height="877" alt="Screenshot 2026-08-27 134514" src="https://github.com/user-attachments/assets/48ba22ee-9eea-41b4-8c39-c64c8e457240" />
+
